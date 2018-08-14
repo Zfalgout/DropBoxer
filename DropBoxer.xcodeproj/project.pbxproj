@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2529D17FCD84D6925AC8C5E1 /* Pods_DropBoxer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6607B660BF15BD08E3E3183 /* Pods_DropBoxer.framework */; };
 		766CBB7021238DD500AE3B03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CBB6F21238DD500AE3B03 /* AppDelegate.swift */; };
 		766CBB7221238DD500AE3B03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CBB7121238DD500AE3B03 /* ViewController.swift */; };
 		766CBB7521238DD500AE3B03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766CBB7321238DD500AE3B03 /* Main.storyboard */; };
 		766CBB7721238DD600AE3B03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 766CBB7621238DD600AE3B03 /* Assets.xcassets */; };
 		766CBB7A21238DD600AE3B03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766CBB7821238DD600AE3B03 /* LaunchScreen.storyboard */; };
 		766CBB8521238DD600AE3B03 /* DropBoxerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CBB8421238DD600AE3B03 /* DropBoxerTests.swift */; };
+		DA1432DAEBA2F1469B905E9E /* Pods_DropBoxerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC5FFCD27329C75A0E5DDAA /* Pods_DropBoxerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		737EC14861A0B4F1A495040C /* Pods-DropBoxer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropBoxer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropBoxer/Pods-DropBoxer.debug.xcconfig"; sourceTree = "<group>"; };
 		766CBB6C21238DD500AE3B03 /* DropBoxer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropBoxer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		766CBB6F21238DD500AE3B03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		766CBB7121238DD500AE3B03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +39,11 @@
 		766CBB8021238DD600AE3B03 /* DropBoxerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropBoxerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		766CBB8421238DD600AE3B03 /* DropBoxerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropBoxerTests.swift; sourceTree = "<group>"; };
 		766CBB8621238DD600AE3B03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846BD9AE034E01BF7D869042 /* Pods-DropBoxer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropBoxer.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropBoxer/Pods-DropBoxer.release.xcconfig"; sourceTree = "<group>"; };
+		9FC5FFCD27329C75A0E5DDAA /* Pods_DropBoxerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DropBoxerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9836073A2AE634F0328F2E2 /* Pods-DropBoxerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropBoxerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropBoxerTests/Pods-DropBoxerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C9E7067182EA4A2B55939B99 /* Pods-DropBoxerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropBoxerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DropBoxerTests/Pods-DropBoxerTests.release.xcconfig"; sourceTree = "<group>"; };
+		F6607B660BF15BD08E3E3183 /* Pods_DropBoxer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DropBoxer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2529D17FCD84D6925AC8C5E1 /* Pods_DropBoxer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +59,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA1432DAEBA2F1469B905E9E /* Pods_DropBoxerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DB129A93CF46DA12C828C88 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				737EC14861A0B4F1A495040C /* Pods-DropBoxer.debug.xcconfig */,
+				846BD9AE034E01BF7D869042 /* Pods-DropBoxer.release.xcconfig */,
+				A9836073A2AE634F0328F2E2 /* Pods-DropBoxerTests.debug.xcconfig */,
+				C9E7067182EA4A2B55939B99 /* Pods-DropBoxerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		766CBB6321238DD500AE3B03 = {
 			isa = PBXGroup;
 			children = (
 				766CBB6E21238DD500AE3B03 /* DropBoxer */,
 				766CBB8321238DD600AE3B03 /* DropBoxerTests */,
 				766CBB6D21238DD500AE3B03 /* Products */,
+				2DB129A93CF46DA12C828C88 /* Pods */,
+				77B4130C98E60FB121A7C662 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +119,15 @@
 			path = DropBoxerTests;
 			sourceTree = "<group>";
 		};
+		77B4130C98E60FB121A7C662 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6607B660BF15BD08E3E3183 /* Pods_DropBoxer.framework */,
+				9FC5FFCD27329C75A0E5DDAA /* Pods_DropBoxerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 766CBB8921238DD700AE3B03 /* Build configuration list for PBXNativeTarget "DropBoxer" */;
 			buildPhases = (
+				56FD81DE4DECB0849A422939 /* [CP] Check Pods Manifest.lock */,
 				766CBB6821238DD500AE3B03 /* Sources */,
 				766CBB6921238DD500AE3B03 /* Frameworks */,
 				766CBB6A21238DD500AE3B03 /* Resources */,
+				286DBE35F7BE9A35EC9C2209 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,6 +154,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 766CBB8C21238DD700AE3B03 /* Build configuration list for PBXNativeTarget "DropBoxerTests" */;
 			buildPhases = (
+				09DA8567CEF437FBA0DEA07B /* [CP] Check Pods Manifest.lock */,
 				766CBB7C21238DD600AE3B03 /* Sources */,
 				766CBB7D21238DD600AE3B03 /* Frameworks */,
 				766CBB7E21238DD600AE3B03 /* Resources */,
@@ -191,6 +226,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09DA8567CEF437FBA0DEA07B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DropBoxerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		286DBE35F7BE9A35EC9C2209 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DropBoxer/Pods-DropBoxer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyDropbox/SwiftyDropbox.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyDropbox.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DropBoxer/Pods-DropBoxer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56FD81DE4DECB0849A422939 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DropBoxer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		766CBB6821238DD500AE3B03 /* Sources */ = {
@@ -356,15 +450,13 @@
 		};
 		766CBB8A21238DD700AE3B03 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 737EC14861A0B4F1A495040C /* Pods-DropBoxer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J8EZLC25K;
 				INFOPLIST_FILE = DropBoxer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zfalgout.DropBoxer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -374,15 +466,13 @@
 		};
 		766CBB8B21238DD700AE3B03 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 846BD9AE034E01BF7D869042 /* Pods-DropBoxer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J8EZLC25K;
 				INFOPLIST_FILE = DropBoxer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zfalgout.DropBoxer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -392,17 +482,14 @@
 		};
 		766CBB8D21238DD700AE3B03 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9836073A2AE634F0328F2E2 /* Pods-DropBoxerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J8EZLC25K;
 				INFOPLIST_FILE = DropBoxerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zfalgout.DropBoxerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -413,17 +500,14 @@
 		};
 		766CBB8E21238DD700AE3B03 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9E7067182EA4A2B55939B99 /* Pods-DropBoxerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J8EZLC25K;
 				INFOPLIST_FILE = DropBoxerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zfalgout.DropBoxerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

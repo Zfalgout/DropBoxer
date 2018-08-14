@@ -1,0 +1,6 @@
+framework module Pods_DropBoxer {
+  umbrella header "Pods-DropBoxer-umbrella.h"
+
+  export *
+  module * { export * }
+}

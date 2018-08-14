@@ -1,12 +1,5 @@
-//
-//  AppDelegate.swift
-//  DropBoxer
-//
-//  Created by Zack Falgout on 8/14/18.
-//  Copyright © 2018 Zack Falgout. All rights reserved.
-//
-
 import UIKit
+import SwiftyDropbox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
