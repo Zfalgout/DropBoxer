@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2529D17FCD84D6925AC8C5E1 /* Pods_DropBoxer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6607B660BF15BD08E3E3183 /* Pods_DropBoxer.framework */; };
+		761572B5212396BE00AC035B /* SwiftyDropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 761572B4212396BE00AC035B /* SwiftyDropbox.framework */; };
 		766CBB7021238DD500AE3B03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CBB6F21238DD500AE3B03 /* AppDelegate.swift */; };
 		766CBB7221238DD500AE3B03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CBB7121238DD500AE3B03 /* ViewController.swift */; };
 		766CBB7521238DD500AE3B03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766CBB7321238DD500AE3B03 /* Main.storyboard */; };
@@ -27,8 +28,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		761572B12123954100AC035B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		737EC14861A0B4F1A495040C /* Pods-DropBoxer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropBoxer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropBoxer/Pods-DropBoxer.debug.xcconfig"; sourceTree = "<group>"; };
+		761572B22123955300AC035B /* SwiftyDropbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyDropbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		761572B4212396BE00AC035B /* SwiftyDropbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyDropbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		766CBB6C21238DD500AE3B03 /* DropBoxer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropBoxer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		766CBB6F21238DD500AE3B03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		766CBB7121238DD500AE3B03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				761572B5212396BE00AC035B /* SwiftyDropbox.framework in Frameworks */,
 				2529D17FCD84D6925AC8C5E1 /* Pods_DropBoxer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +139,8 @@
 		77B4130C98E60FB121A7C662 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				761572B4212396BE00AC035B /* SwiftyDropbox.framework */,
+				761572B22123955300AC035B /* SwiftyDropbox.framework */,
 				F6607B660BF15BD08E3E3183 /* Pods_DropBoxer.framework */,
 				9FC5FFCD27329C75A0E5DDAA /* Pods_DropBoxerTests.framework */,
 			);
@@ -140,6 +159,7 @@
 				766CBB6921238DD500AE3B03 /* Frameworks */,
 				766CBB6A21238DD500AE3B03 /* Resources */,
 				286DBE35F7BE9A35EC9C2209 /* [CP] Embed Pods Frameworks */,
+				761572B12123954100AC035B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -456,7 +476,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J8EZLC25K;
 				INFOPLIST_FILE = DropBoxer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zfalgout.DropBoxer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -472,7 +495,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J8EZLC25K;
 				INFOPLIST_FILE = DropBoxer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zfalgout.DropBoxer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -489,7 +515,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J8EZLC25K;
 				INFOPLIST_FILE = DropBoxerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zfalgout.DropBoxerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -507,7 +537,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J8EZLC25K;
 				INFOPLIST_FILE = DropBoxerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zfalgout.DropBoxerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
