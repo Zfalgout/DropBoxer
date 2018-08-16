@@ -17,13 +17,87 @@
                     <view key="view" contentMode="scaleToFill" id="eTz-wt-v4Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlM-9v-pZA">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="cv3-6Q-Ea5"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="5yo-Py-TLo" eventType="touchUpInside" id="rCZ-u0-BXH"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r84-mf-EgG">
+                                <rect key="frame" x="0.0" y="20" width="375" height="587"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NGe-9g-MIE">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="4gB-Pv-loy" customClass="PhotoCell" customModule="DropBoxer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SOd-3J-sKA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="SOd-3J-sKA" firstAttribute="height" secondItem="4gB-Pv-loy" secondAttribute="height" id="ICd-xd-SKP"/>
+                                            <constraint firstItem="SOd-3J-sKA" firstAttribute="centerX" secondItem="4gB-Pv-loy" secondAttribute="centerX" id="Qcx-Kr-WgI"/>
+                                            <constraint firstItem="SOd-3J-sKA" firstAttribute="width" secondItem="4gB-Pv-loy" secondAttribute="width" id="fcd-i4-LyK"/>
+                                            <constraint firstItem="SOd-3J-sKA" firstAttribute="centerY" secondItem="4gB-Pv-loy" secondAttribute="centerY" id="hxJ-R6-fvk"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="SOd-3J-sKA" id="hSC-Tl-Tcz"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="A95-fM-GLo" firstAttribute="trailing" secondItem="wlM-9v-pZA" secondAttribute="trailing" id="FRU-ym-FY4"/>
+                            <constraint firstItem="r84-mf-EgG" firstAttribute="top" secondItem="A95-fM-GLo" secondAttribute="top" id="NOo-RW-LH1"/>
+                            <constraint firstItem="A95-fM-GLo" firstAttribute="bottom" secondItem="wlM-9v-pZA" secondAttribute="bottom" id="ZBg-u0-OrV"/>
+                            <constraint firstItem="wlM-9v-pZA" firstAttribute="top" secondItem="r84-mf-EgG" secondAttribute="bottom" id="f2g-bW-1LD"/>
+                            <constraint firstItem="r84-mf-EgG" firstAttribute="leading" secondItem="A95-fM-GLo" secondAttribute="leading" id="fJD-6S-Osu"/>
+                            <constraint firstItem="wlM-9v-pZA" firstAttribute="leading" secondItem="A95-fM-GLo" secondAttribute="leading" id="tch-g7-b0j"/>
+                            <constraint firstItem="A95-fM-GLo" firstAttribute="trailing" secondItem="r84-mf-EgG" secondAttribute="trailing" id="wg1-6W-hor"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="A95-fM-GLo"/>
                     </view>
+                    <connections>
+                        <outlet property="photosCollectionView" destination="r84-mf-EgG" id="Rn0-g5-imX"/>
+                        <segue destination="mW1-SB-VS9" kind="show" identifier="showUploadScreen" id="iRV-tp-Hfz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYi-aI-9XM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="136"/>
+            <point key="canvasLocation" x="-558" y="47"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fM9-EG-D7L">
+            <objects>
+                <viewController id="mW1-SB-VS9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MQ7-PZ-0bT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Sle-JJ-9Ja"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="05G-Vs-H95" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="48"/>
         </scene>
     </scenes>
 </document>

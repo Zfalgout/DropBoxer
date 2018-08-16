@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		2529D17FCD84D6925AC8C5E1 /* Pods_DropBoxer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6607B660BF15BD08E3E3183 /* Pods_DropBoxer.framework */; };
 		761572B5212396BE00AC035B /* SwiftyDropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 761572B4212396BE00AC035B /* SwiftyDropbox.framework */; };
+		7637CBAC21249236004AC0C0 /* PhotoLibraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637CBAB21249236004AC0C0 /* PhotoLibraryVM.swift */; };
+		7637CBAE212497F5004AC0C0 /* PhotosCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637CBAD212497F5004AC0C0 /* PhotosCollectionVC.swift */; };
+		7637CBB221249AAA004AC0C0 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637CBB121249AAA004AC0C0 /* PhotoCell.swift */; };
 		766CBB7021238DD500AE3B03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CBB6F21238DD500AE3B03 /* AppDelegate.swift */; };
 		766CBB7521238DD500AE3B03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766CBB7321238DD500AE3B03 /* Main.storyboard */; };
 		766CBB7721238DD600AE3B03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 766CBB7621238DD600AE3B03 /* Assets.xcassets */; };
 		766CBB7A21238DD600AE3B03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766CBB7821238DD600AE3B03 /* LaunchScreen.storyboard */; };
 		766CBB8521238DD600AE3B03 /* DropBoxerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CBB8421238DD600AE3B03 /* DropBoxerTests.swift */; };
+		76976DAC21251C0F00D2A904 /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76976DAB21251C0F00D2A904 /* UploadVC.swift */; };
 		76ED37912123BC2A00432531 /* DropboxVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED37902123BC2A00432531 /* DropboxVM.swift */; };
 		76ED37932123BCF300432531 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 76ED37922123BCF300432531 /* README.txt */; };
 		76ED379A2123BEA900432531 /* SavedPhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED37992123BEA900432531 /* SavedPhotosVC.swift */; };
@@ -47,6 +51,9 @@
 		737EC14861A0B4F1A495040C /* Pods-DropBoxer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DropBoxer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DropBoxer/Pods-DropBoxer.debug.xcconfig"; sourceTree = "<group>"; };
 		761572B22123955300AC035B /* SwiftyDropbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyDropbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		761572B4212396BE00AC035B /* SwiftyDropbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyDropbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7637CBAB21249236004AC0C0 /* PhotoLibraryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryVM.swift; sourceTree = "<group>"; };
+		7637CBAD212497F5004AC0C0 /* PhotosCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionVC.swift; sourceTree = "<group>"; };
+		7637CBB121249AAA004AC0C0 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		766CBB6C21238DD500AE3B03 /* DropBoxer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropBoxer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		766CBB6F21238DD500AE3B03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		766CBB7421238DD500AE3B03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,6 +63,7 @@
 		766CBB8021238DD600AE3B03 /* DropBoxerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropBoxerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		766CBB8421238DD600AE3B03 /* DropBoxerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropBoxerTests.swift; sourceTree = "<group>"; };
 		766CBB8621238DD600AE3B03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76976DAB21251C0F00D2A904 /* UploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
 		76ED37902123BC2A00432531 /* DropboxVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxVM.swift; sourceTree = "<group>"; };
 		76ED37922123BCF300432531 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		76ED37992123BEA900432531 /* SavedPhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPhotosVC.swift; sourceTree = "<group>"; };
@@ -122,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				76ED378F2123BB6100432531 /* ViewModels */,
-				76ED378E2123BB5A00432531 /* ViewControllers */,
+				76ED378E2123BB5A00432531 /* Views */,
 				76ED378D2123BB4400432531 /* Model */,
 				766CBB6F21238DD500AE3B03 /* AppDelegate.swift */,
 				766CBB7321238DD500AE3B03 /* Main.storyboard */,
@@ -151,18 +159,22 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		76ED378E2123BB5A00432531 /* ViewControllers */ = {
+		76ED378E2123BB5A00432531 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				76ED37992123BEA900432531 /* SavedPhotosVC.swift */,
+				7637CBAD212497F5004AC0C0 /* PhotosCollectionVC.swift */,
+				7637CBB121249AAA004AC0C0 /* PhotoCell.swift */,
+				76976DAB21251C0F00D2A904 /* UploadVC.swift */,
 			);
-			path = ViewControllers;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		76ED378F2123BB6100432531 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				76ED37902123BC2A00432531 /* DropboxVM.swift */,
+				7637CBAB21249236004AC0C0 /* PhotoLibraryVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -343,9 +355,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7637CBAE212497F5004AC0C0 /* PhotosCollectionVC.swift in Sources */,
 				76ED379A2123BEA900432531 /* SavedPhotosVC.swift in Sources */,
+				7637CBAC21249236004AC0C0 /* PhotoLibraryVM.swift in Sources */,
 				76ED37912123BC2A00432531 /* DropboxVM.swift in Sources */,
+				7637CBB221249AAA004AC0C0 /* PhotoCell.swift in Sources */,
 				766CBB7021238DD500AE3B03 /* AppDelegate.swift in Sources */,
+				76976DAC21251C0F00D2A904 /* UploadVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
