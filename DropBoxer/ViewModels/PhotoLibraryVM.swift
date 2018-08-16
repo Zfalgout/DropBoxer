@@ -1,6 +1,7 @@
 import Foundation
 import Photos
 
+//This struct is responsible for accessing the user's photo library.
 struct PhotoLibraryVM {
     
     func retrievePhotos() -> [UIImage] {
@@ -16,6 +17,7 @@ struct PhotoLibraryVM {
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         
+        //Making the 'with' parameter .image means that we shouldn't get any movies.
         let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
         
         //Do I need to check whether the fetch was successful?

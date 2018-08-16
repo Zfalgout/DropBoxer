@@ -1,35 +1,33 @@
-//
-//  UploadVC.swift
-//  DropBoxer
-//
-//  Created by Zack Falgout on 8/15/18.
-//  Copyright © 2018 Zack Falgout. All rights reserved.
-//
-
 import UIKit
+import SwiftyDropbox
 
+//This is the view that calls over to the DropboxVM backend.  All it exists to do is shuttle information.
 class UploadVC: UIViewController {
 
+    //The images to be uploaded.
+    var imagesToBeUploaded: Set<UIImage> = []
+    
+    //The object used to connect to dropbox.
+    let dropboxVM = DropboxVM()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if !userAuthenticated {
+            dropboxVM.authenticateWithDB(from: self)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func uploadPhotos(_ sender: Any) {
+    
+        print("The photos to be uploaded are \(imagesToBeUploaded)")
+        
+        //dropboxVM.authenticateWithDB(from: self)
+        
+        dropboxVM.upload(photos: imagesToBeUploaded)
     }
-    */
-
 }

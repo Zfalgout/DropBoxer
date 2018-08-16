@@ -4,10 +4,13 @@ class SavedPhotosVC: UIViewController {
 
     let photoLibrary = PhotoLibraryVM()
     let photoCellImpl = PhotoCell()
+
     private let reuseIdentifier = "photoCell"
     
     //Using an array for imagesFromLibrary because I need them it to be ordered.  If a user clicks on a cell in the collectionView, that's the image that needs to be uploaded.  Besides, I already ordered the way the photos were retrieved in PhotoLibraryVM.swift.  It'd be a shame to mess it all up now....
     var imagesFromLibrary: [UIImage] = []
+    
+    //Using a set for images to upload because order doesn't matter as much on upload and because it allows me to remove a *specific* image from the set.  This is done when the user taps a photo, and then goes back and taps it again.
     var imagesForUpload: Set<UIImage> = []
     
     //Grab the width and height of the screen to use to resize the collection view cells.
@@ -19,34 +22,43 @@ class SavedPhotosVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Grab the photos from the user's photo library.
         imagesFromLibrary = photoLibrary.retrievePhotos()
         
+        //Set the collection view's data source and delegate to this VC.
         photosCollectionView.dataSource = self
         photosCollectionView.delegate = self
         
+        //Setup the layout.
         setupCollectionViewLayout()
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
     
-        print("The value of the imagesForUpload is \(imagesForUpload)")
-        
+        guard !imagesForUpload.isEmpty else {
+            //Show a modal letting the user know that he or she must select an image.
+            return
+        }
+
+        performSegue(withIdentifier: "showUploadVC", sender: self)
     }
     
-    
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showUploadVC" {
+            if let destination = segue.destination as? UploadVC {
+                destination.imagesToBeUploaded = self.imagesForUpload
+            }
+        }
+        
     }
-    */
 
 }
 
-
+//This extension is for setting up the collection view layout.
 extension SavedPhotosVC {
     
     private func setupCollectionViewLayout() {

@@ -5,7 +5,7 @@ import SwiftyDropbox
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let dropboxVM = DropboxVM()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
        
@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch authResult {
             case .success:
                 print("Success! User is logged into Dropbox.")
+                userAuthenticated = true
             case .cancel:
                 print("Authorization flow was manually canceled by user!")
             case .error(_, let description):
@@ -32,3 +33,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+var userAuthenticated = false

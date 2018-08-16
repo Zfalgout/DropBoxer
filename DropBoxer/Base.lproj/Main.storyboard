@@ -77,20 +77,30 @@
                     </view>
                     <connections>
                         <outlet property="photosCollectionView" destination="r84-mf-EgG" id="Rn0-g5-imX"/>
-                        <segue destination="mW1-SB-VS9" kind="show" identifier="showUploadScreen" id="iRV-tp-Hfz"/>
+                        <segue destination="mW1-SB-VS9" kind="show" identifier="showUploadVC" id="iRV-tp-Hfz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYi-aI-9XM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-558" y="47"/>
         </scene>
-        <!--View Controller-->
+        <!--UploadVC-->
         <scene sceneID="fM9-EG-D7L">
             <objects>
-                <viewController id="mW1-SB-VS9" sceneMemberID="viewController">
+                <viewController id="mW1-SB-VS9" customClass="UploadVC" customModule="DropBoxer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MQ7-PZ-0bT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jO-Qh-PNb">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="uploadPhotos:" destination="mW1-SB-VS9" eventType="touchUpInside" id="zsV-5M-e7u"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Sle-JJ-9Ja"/>
                     </view>

@@ -12,3 +12,13 @@ the delegate for the UIImagePickerController class that handles the user's photo
 The first time the app is launched, the user is prompted to allow DropBoxer to have access to the photos on the phone.
 This means that the functionality to grab the photos fails the first time.  After that it works.  Need to figure it out.
 
+TODO:
+Figure out a limit for the number of photos that can be uploaded at once.
+Add a button to the upload screen to take the user back to the photo library for more uploads.
+Create a progress bar.
+Handle file upload errors.
+Clean up UI.
+
+Nice to haves:
+Storing user info in the keychain so he or she doesn't have to log into DB each time the app runs.
+Think of a better place for DB authentication.
