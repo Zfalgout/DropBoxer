@@ -7,6 +7,7 @@ class PhotoCell: UICollectionViewCell {
     @IBOutlet weak var checkmark: UIImageView!
     
     //Configure the cell with the photo from the array and round the corners.
+    //This isn't done in awakeFromNib because I don't have the photo yet.
     func configureCellWith(photo: UIImage) {
         self.layer.cornerRadius = 25
         self.layer.masksToBounds = true
@@ -20,12 +21,6 @@ class PhotoCell: UICollectionViewCell {
     
     //A function for showing/hiding the checkmark.
     func updateCheckmark() {
-        
-//        if self.checkmark.alpha == 0.0 {
-//            self.checkmark.alpha = 0.5
-//        } else {
-//            self.checkmark = 0.0
-//        }
         
         UIView.animate(withDuration: 0.2) {
             if self.checkmark.alpha == 0.0 {

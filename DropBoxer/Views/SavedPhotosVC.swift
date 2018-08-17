@@ -77,7 +77,6 @@ extension SavedPhotosVC {
 extension SavedPhotosVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("About to return a count of \(imagesFromLibrary.count)")
         return imagesFromLibrary.count
     }
     
@@ -93,17 +92,28 @@ extension SavedPhotosVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
         let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell
-        
-        
+
         if imagesForUpload.contains(imagesFromLibrary[indexPath.item]) {
             //The images for upload already contains the photo.  Remove it from the array.
             imagesForUpload.remove(imagesFromLibrary[indexPath.item])
-            cell?.updateCheckmark()
+            
+            //Ensure that the cell is a PhotoCell and isn't nil.
+            guard let cell = cell else {
+                //The cell was nil, the image has been added to the upload array, return without showing a checkmark.
+                return
+            }
+            cell.updateCheckmark()
         } else {
             //The images for upload does not contain the photo.  Add it.
             //imagesForUpload.append(imagesFromLibrary[indexPath.item])
             imagesForUpload.insert(imagesFromLibrary[indexPath.item])
-            cell?.updateCheckmark()
+            
+            //Ensure that the cell is a PhotoCell and isn't nil.
+            guard let cell = cell else {
+                //The cell was nil, the image has been added to the upload array, return without showing a checkmark.
+                return
+            }
+            cell.updateCheckmark()
         }
         
     }
