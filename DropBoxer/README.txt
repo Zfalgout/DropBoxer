@@ -14,11 +14,13 @@ This means that the functionality to grab the photos fails the first time.  Afte
 
 TODO:
 Figure out a limit for the number of photos that can be uploaded at once.
+Show a success message upon completion of the upload.
 Add a button to the upload screen to take the user back to the photo library for more uploads.
 Create a progress bar.
 Handle file upload errors.
-Clean up UI.
+Add check marks to the cells when a user clicks on them.
 
 Nice to haves:
 Storing user info in the keychain so he or she doesn't have to log into DB each time the app runs.
 Think of a better place for DB authentication.
+Allow the user to edit the photo before upload.
