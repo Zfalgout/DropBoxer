@@ -21,14 +21,23 @@ struct DropboxVM {
         //The user has been authorized.  Create a dropbox client using the authroized info.
         let client = DropboxClientsManager.authorizedClient
 
+        //Get today's date to use as the name of the upload folder.
+        let uploadDate = Date()
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "yyyy_MM_dd"
+        //Append a UUID at the end so as not to cause any collisions.
+        let folderName = formatter.string(from: uploadDate) + "_" + UUID().uuidString
+        
         //Loop through our set of photos.
         for photo in photos {
             //Convert the photo to data for upload.
             if let fileData = UIImagePNGRepresentation(photo) {
+
                 //Names must be unique in dropbox.  Create a UUID for each photo so there aren't any collisions.
                 let photoName = "Dropboxer photo" + UUID().uuidString
                 //Upload the photo.
-                let request = client?.files.upload(path: "/DropboxerUploads/\(photoName).png", input: fileData)
+                let request = client?.files.upload(path: "/DropboxerUploads/\(folderName)/\(photoName).png", input: fileData)
                     .response { response, error in
                         //The call to DB has been made.
                         if let response = response {
