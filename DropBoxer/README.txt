@@ -13,12 +13,13 @@ The first time the app is launched, the user is prompted to allow DropBoxer to h
 This means that the functionality to grab the photos fails the first time.  After that it works.  Need to figure it out.
 
 TODO:
+Add check marks to the cells when a user clicks on them.
+Handle file upload errors.
 Figure out a limit for the number of photos that can be uploaded at once.
 Show a success message upon completion of the upload.
 Add a button to the upload screen to take the user back to the photo library for more uploads.
 Create a progress bar.
-Handle file upload errors.
-Add check marks to the cells when a user clicks on them.
+
 
 Nice to haves:
 Storing user info in the keychain so he or she doesn't have to log into DB each time the app runs.

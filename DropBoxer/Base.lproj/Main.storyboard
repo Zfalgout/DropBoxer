@@ -38,13 +38,21 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SOd-3J-sKA">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="iaP-Yi-9dk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="iaP-Yi-9dk" firstAttribute="centerX" secondItem="4gB-Pv-loy" secondAttribute="centerX" id="E2e-K7-6lo"/>
                                             <constraint firstItem="SOd-3J-sKA" firstAttribute="height" secondItem="4gB-Pv-loy" secondAttribute="height" id="ICd-xd-SKP"/>
                                             <constraint firstItem="SOd-3J-sKA" firstAttribute="centerX" secondItem="4gB-Pv-loy" secondAttribute="centerX" id="Qcx-Kr-WgI"/>
+                                            <constraint firstItem="iaP-Yi-9dk" firstAttribute="height" secondItem="4gB-Pv-loy" secondAttribute="height" id="b73-YI-pTy"/>
                                             <constraint firstItem="SOd-3J-sKA" firstAttribute="width" secondItem="4gB-Pv-loy" secondAttribute="width" id="fcd-i4-LyK"/>
                                             <constraint firstItem="SOd-3J-sKA" firstAttribute="centerY" secondItem="4gB-Pv-loy" secondAttribute="centerY" id="hxJ-R6-fvk"/>
+                                            <constraint firstItem="iaP-Yi-9dk" firstAttribute="width" secondItem="4gB-Pv-loy" secondAttribute="width" id="ux7-aT-aoE"/>
+                                            <constraint firstItem="iaP-Yi-9dk" firstAttribute="centerY" secondItem="4gB-Pv-loy" secondAttribute="centerY" id="zSy-G2-uAh"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="SOd-3J-sKA" id="hSC-Tl-Tcz"/>
@@ -123,4 +131,7 @@
             <point key="canvasLocation" x="620" y="48"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkmark" width="33" height="37"/>
+    </resources>
 </document>
