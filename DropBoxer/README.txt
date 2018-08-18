@@ -14,6 +14,8 @@ This means that the functionality to grab the photos fails the first time.  Afte
 
 TODO:
 Show a success message upon completion of the upload.
+Handle the issue of the checkmark not showing if the user scrolls the CollectionView and the outer-most cells are
+checked.
 Handle file upload errors.
 Replace the checkmarks for the cells with a label that will hold the number of pictures selected.
 Add a button to the upload screen to take the user back to the photo library for more uploads.

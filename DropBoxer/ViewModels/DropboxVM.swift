@@ -4,6 +4,8 @@ import SwiftyDropbox
 //This struct is responsible for making the calls out to Dropbox.
 struct DropboxVM {
     
+    var delegate: DropboxVMDelegate?
+    
     //This is the function called for authenticating the user with Dropbox.
     func authenticateWithDB(from view: UIViewController) {
         
@@ -29,8 +31,11 @@ struct DropboxVM {
         //Append a UUID at the end so as not to cause any collisions.
         let folderName = formatter.string(from: uploadDate) + "_" + UUID().uuidString
         
+        var count = 0
+        
         //Loop through our set of photos.
         for photo in photos {
+            count += 1
             //Convert the photo to data for upload.
             if let fileData = UIImagePNGRepresentation(photo) {
 
@@ -42,22 +47,22 @@ struct DropboxVM {
                         //The call to DB has been made.
                         if let response = response {
                             //Check the response for any needed data.
-                            print(response)
+                            //print("The response is \(response)")
                         } else if let error = error {
                             //Handle all upload errors here.
                             //Something failed.  Handle it.
-                            print(error)
+                            //print(error)
                         }
                     }
                     .progress { progressData in
                         //Create and show a progress bar here.
-                        print("In the progress block.")
-                        print(progressData)
-                }
+                        self.delegate?.updateProgressBar(count: count)
+                        }
             } else {
                 //Handle the conversion error.
             }
         }
+
     }
     
 }
