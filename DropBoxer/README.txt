@@ -15,7 +15,7 @@ This means that the functionality to grab the photos fails the first time.  Afte
 TODO:
 Show a success message upon completion of the upload.
 Handle file upload errors.
-Figure out a limit for the number of photos that can be uploaded at once, and add a counter.
+Replace the checkmarks for the cells with a label that will hold the number of pictures selected.
 Add a button to the upload screen to take the user back to the photo library for more uploads.
 Create a progress bar.
 
