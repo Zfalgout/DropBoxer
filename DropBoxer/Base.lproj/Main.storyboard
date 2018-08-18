@@ -114,22 +114,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jO-Qh-PNb">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="uploadPhotos:" destination="mW1-SB-VS9" eventType="touchUpInside" id="zsV-5M-e7u"/>
-                                </connections>
-                            </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICC-iM-XOm">
+                                <rect key="frame" x="0.0" y="20" width="375" height="87"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="3h4-6c-KL6">
+                                        <rect key="frame" x="10" y="10" width="67" height="67"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="67" id="K3J-eI-pIt"/>
+                                            <constraint firstAttribute="width" constant="67" id="xZi-0e-K1e"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload successful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHB-WD-Oof">
+                                        <rect key="frame" x="85" y="33" width="282" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14117647059999999" green="0.4431372549" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="3h4-6c-KL6" firstAttribute="leading" secondItem="ICC-iM-XOm" secondAttribute="leading" constant="10" id="68c-db-tEU"/>
+                                    <constraint firstItem="3h4-6c-KL6" firstAttribute="centerY" secondItem="ICC-iM-XOm" secondAttribute="centerY" id="ZLw-Qv-1Bu"/>
+                                    <constraint firstItem="qHB-WD-Oof" firstAttribute="leading" secondItem="3h4-6c-KL6" secondAttribute="trailing" constant="8" id="ell-sN-B9f"/>
+                                    <constraint firstItem="qHB-WD-Oof" firstAttribute="centerY" secondItem="3h4-6c-KL6" secondAttribute="centerY" id="hND-LJ-Y27"/>
+                                    <constraint firstAttribute="trailing" secondItem="qHB-WD-Oof" secondAttribute="trailing" constant="8" id="qJD-k9-kdC"/>
+                                    <constraint firstItem="3h4-6c-KL6" firstAttribute="top" secondItem="ICC-iM-XOm" secondAttribute="top" constant="10" id="rE3-qN-gfn"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkc-Nz-inM">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jO-Qh-PNb" customClass="RoundedButtonView" customModule="DropBoxer" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="8" width="275" height="44"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="23"/>
+                                        <state key="normal" title="Upload">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="uploadPhotos:" destination="mW1-SB-VS9" eventType="touchUpInside" id="zsV-5M-e7u"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14117647059999999" green="0.4431372549" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="6jO-Qh-PNb" firstAttribute="leading" secondItem="Nkc-Nz-inM" secondAttribute="leading" constant="50" id="N4A-gg-dTs"/>
+                                    <constraint firstItem="6jO-Qh-PNb" firstAttribute="centerY" secondItem="Nkc-Nz-inM" secondAttribute="centerY" id="WWe-7W-Ob5"/>
+                                    <constraint firstAttribute="height" constant="60" id="Xai-Me-NXf"/>
+                                    <constraint firstItem="6jO-Qh-PNb" firstAttribute="centerX" secondItem="Nkc-Nz-inM" secondAttribute="centerX" id="Zk3-l0-fEx"/>
+                                    <constraint firstAttribute="trailing" secondItem="6jO-Qh-PNb" secondAttribute="trailing" constant="50" id="mBl-4M-YYP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ICC-iM-XOm" firstAttribute="leading" secondItem="Sle-JJ-9Ja" secondAttribute="leading" id="8F3-zm-Zyx"/>
+                            <constraint firstItem="Sle-JJ-9Ja" firstAttribute="trailing" secondItem="ICC-iM-XOm" secondAttribute="trailing" id="EEa-Gq-rFs"/>
+                            <constraint firstItem="Nkc-Nz-inM" firstAttribute="leading" secondItem="Sle-JJ-9Ja" secondAttribute="leading" id="TOl-Kp-rjs"/>
+                            <constraint firstItem="Nkc-Nz-inM" firstAttribute="bottom" secondItem="Sle-JJ-9Ja" secondAttribute="bottom" id="Wrt-5n-99c"/>
+                            <constraint firstItem="ICC-iM-XOm" firstAttribute="top" secondItem="Sle-JJ-9Ja" secondAttribute="top" id="Y6w-eX-HQE"/>
+                            <constraint firstItem="Nkc-Nz-inM" firstAttribute="trailing" secondItem="Sle-JJ-9Ja" secondAttribute="trailing" id="egT-vF-WYC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Sle-JJ-9Ja"/>
                     </view>
+                    <connections>
+                        <outlet property="successView" destination="ICC-iM-XOm" id="hn0-Q0-qWz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05G-Vs-H95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="48"/>
+            <point key="canvasLocation" x="620" y="47.226386806596707"/>
         </scene>
     </scenes>
     <resources>
