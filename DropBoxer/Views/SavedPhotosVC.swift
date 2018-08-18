@@ -2,9 +2,12 @@ import UIKit
 
 class SavedPhotosVC: UIViewController {
 
+    private let SHOW_INSTRUCTION_ALERT_KEY = "ShowInstructionAlert"
+    
     let photoLibrary = PhotoLibraryVM()
     let photoCellImpl = PhotoCell()
-
+    let userDefaults = UserDefaults()
+    
     private let reuseIdentifier = "photoCell"
     
     //Using an array for imagesFromLibrary because I need them it to be ordered.  If a user clicks on a cell in the collectionView, that's the image that needs to be uploaded.  Besides, I already ordered the way the photos were retrieved in PhotoLibraryVM.swift.  It'd be a shame to mess it all up now....
@@ -31,6 +34,46 @@ class SavedPhotosVC: UIViewController {
         
         //Setup the layout.
         setupCollectionViewLayout()
+        
+        //Set up a notification to show the alert if the application becomes active from the background.
+        NotificationCenter.default.addObserver(self, selector:#selector(determineIfAlertIsShown), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    //Override viewDidAppear to show the alert.
+    override func viewDidAppear(_ animated: Bool) {
+        determineIfAlertIsShown()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func determineIfAlertIsShown() {
+        //The only time this key in UserDefaults is sets is after the user clicks the option to not be shown the instructions again.  If it is anything but nil, show the alert.
+        guard userDefaults.string(forKey: SHOW_INSTRUCTION_ALERT_KEY) != nil else {
+            showAlert()
+            return
+        }
+        
+        //This is a safety net in case the guard statement fails somehow (e.g. if the value for this key gets changed at some point in the future).
+        if userDefaults.string(forKey: SHOW_INSTRUCTION_ALERT_KEY) != "no" {
+            showAlert()
+        }
+    }
+    
+    private func showAlert() {
+        
+        let alert = UIAlertController(title: nil, message: "Please select up to 20 photos", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+        //This will add an entry to user defaults which can then be read on subsequent loads of the app.
+        alert.addAction(UIAlertAction(title: "Don't show me this again", style: .destructive, handler: { [weak self] alert in
+
+            self?.userDefaults.set("no", forKey: (self?.SHOW_INSTRUCTION_ALERT_KEY)!)
+        }))
+        
+        self.present(alert, animated: true)
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
