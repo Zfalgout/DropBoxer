@@ -11,17 +11,21 @@ class SavedPhotosVC: UIViewController {
     private let reuseIdentifier = "photoCell"
     
     //Using an array for imagesFromLibrary because I need them it to be ordered.  If a user clicks on a cell in the collectionView, that's the image that needs to be uploaded.  Besides, I already ordered the way the photos were retrieved in PhotoLibraryVM.swift.  It'd be a shame to mess it all up now....
-    var imagesFromLibrary: [UIImage] = []
+    var imagesFromLibrary: [StatefulImage] = []
     
     //Using a set for images to upload because order doesn't matter as much on upload and because it allows me to remove a *specific* image from the set.  This is done when the user taps a photo, and then goes back and taps it again.
     var imagesForUpload: Set<UIImage> = []
+    
+    var checkedImages: Set<Int> = []
     
     //Grab the width and height of the screen to use to resize the collection view cells.
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.width
     
     @IBOutlet weak var photosCollectionView: UICollectionView!
-
+    
+    @IBOutlet weak var countLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +45,20 @@ class SavedPhotosVC: UIViewController {
     
     //Override viewDidAppear to show the alert.
     override func viewDidAppear(_ animated: Bool) {
+        //Need to see if we have to show the alert.
         determineIfAlertIsShown()
+        
+        for index in checkedImages {
+            imagesFromLibrary[index].isChecked = false
+        }
+        
+        //Clear out the imagesForUpload array.
+        imagesForUpload.removeAll()
+        
+        countLabel.text = "\(imagesForUpload.count)"
+        
+        //Hide the checkmark for each selected cell.
+        photosCollectionView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -127,7 +144,7 @@ extension SavedPhotosVC: UICollectionViewDataSource, UICollectionViewDelegate {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoCell
         
         //cell.imageView.image = imagesFromLibrary[indexPath.item]
-        cell.configureCellWith(photo: imagesFromLibrary[indexPath.item])
+        cell.configureCellWith(statefulImage: imagesFromLibrary[indexPath.item])
         
         return cell
     }
@@ -136,27 +153,31 @@ extension SavedPhotosVC: UICollectionViewDataSource, UICollectionViewDelegate {
         print(indexPath.item)
         let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell
 
-        if imagesForUpload.contains(imagesFromLibrary[indexPath.item]) {
+        if imagesForUpload.contains(imagesFromLibrary[indexPath.item].photo) {
             //The images for upload already contains the photo.  Remove it from the array.
-            imagesForUpload.remove(imagesFromLibrary[indexPath.item])
+            imagesForUpload.remove(imagesFromLibrary[indexPath.item].photo)
             
             //Ensure that the cell is a PhotoCell and isn't nil.
             guard let cell = cell else {
                 //The cell was nil, the image has been added to the upload array, return without showing a checkmark.
                 return
             }
-            cell.updateCheckmark()
+            cell.updateCheckmarkFor(statefulImage: imagesFromLibrary[indexPath.item])
+            checkedImages.remove(indexPath.item)
+            countLabel.text = "\(imagesForUpload.count)"
         } else {
             //The images for upload does not contain the photo.  Add it.
             //imagesForUpload.append(imagesFromLibrary[indexPath.item])
-            imagesForUpload.insert(imagesFromLibrary[indexPath.item])
+            imagesForUpload.insert(imagesFromLibrary[indexPath.item].photo)
             
             //Ensure that the cell is a PhotoCell and isn't nil.
             guard let cell = cell else {
                 //The cell was nil, the image has been added to the upload array, return without showing a checkmark.
                 return
             }
-            cell.updateCheckmark()
+            cell.updateCheckmarkFor(statefulImage: imagesFromLibrary[indexPath.item])
+            checkedImages.insert(indexPath.item)
+            countLabel.text = "\(imagesForUpload.count)"
         }
         
     }

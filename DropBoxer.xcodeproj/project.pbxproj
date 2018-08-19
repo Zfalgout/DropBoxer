@@ -18,6 +18,7 @@
 		766CBB7A21238DD600AE3B03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766CBB7821238DD600AE3B03 /* LaunchScreen.storyboard */; };
 		766CBB8521238DD600AE3B03 /* DropBoxerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CBB8421238DD600AE3B03 /* DropBoxerTests.swift */; };
 		76976DAC21251C0F00D2A904 /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76976DAB21251C0F00D2A904 /* UploadVC.swift */; };
+		76B00FAA212A08D700A36923 /* StatefulImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B00FA9212A08D700A36923 /* StatefulImage.swift */; };
 		76ED37912123BC2A00432531 /* DropboxVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED37902123BC2A00432531 /* DropboxVM.swift */; };
 		76ED37932123BCF300432531 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 76ED37922123BCF300432531 /* README.txt */; };
 		76ED379A2123BEA900432531 /* SavedPhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED37992123BEA900432531 /* SavedPhotosVC.swift */; };
@@ -64,6 +65,7 @@
 		766CBB8421238DD600AE3B03 /* DropBoxerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropBoxerTests.swift; sourceTree = "<group>"; };
 		766CBB8621238DD600AE3B03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76976DAB21251C0F00D2A904 /* UploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
+		76B00FA9212A08D700A36923 /* StatefulImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatefulImage.swift; path = DropBoxer/Views/StatefulImage.swift; sourceTree = SOURCE_ROOT; };
 		76ED37902123BC2A00432531 /* DropboxVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxVM.swift; sourceTree = "<group>"; };
 		76ED37922123BCF300432531 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		76ED37992123BEA900432531 /* SavedPhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPhotosVC.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		76ED378D2123BB4400432531 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				76B00FA9212A08D700A36923 /* StatefulImage.swift */,
 			);
 			name = Model;
 			path = "New Group";
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76ED379A2123BEA900432531 /* SavedPhotosVC.swift in Sources */,
+				76B00FAA212A08D700A36923 /* StatefulImage.swift in Sources */,
 				7637CBAC21249236004AC0C0 /* PhotoLibraryVM.swift in Sources */,
 				76ED37912123BC2A00432531 /* DropboxVM.swift in Sources */,
 				7637CBB221249AAA004AC0C0 /* PhotoCell.swift in Sources */,

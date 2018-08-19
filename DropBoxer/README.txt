@@ -14,12 +14,8 @@ This means that the functionality to grab the photos fails the first time.  Afte
 out.
 
 TODO:
-Handle the issue of the checkmark not showing if the user scrolls the CollectionView and the outer-most cells are
-checked.
-Handle file upload errors, and update the success message to be a failure if the upload fails.
-Replace the checkmarks for the cells with a label that will hold the number of pictures selected.
-Add a button to the upload screen to take the user back to the photo library for more uploads.
-Create a progress bar.
+Create another initial VC that will mimic the launch screen.  This is where the user will be asked for permission for
+the app to access photos.  It will also give me a chance to add some animation to the launch.
 
 
 Nice to haves:

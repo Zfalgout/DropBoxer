@@ -4,8 +4,8 @@ import Photos
 //This struct is responsible for accessing the user's photo library.
 struct PhotoLibraryVM {
     
-    func retrievePhotos() -> [UIImage] {
-        var imageArray: [UIImage] = []
+    func retrievePhotos() -> [StatefulImage] {
+        var imageArray: [StatefulImage] = []
         let imageManager = PHImageManager.default()
         
         //The options for requesting the photos.  Could synchronous cause issues?
@@ -26,7 +26,11 @@ struct PhotoLibraryVM {
             
             for i in 0..<fetchResult.count {
                 imageManager.requestImage(for: fetchResult.object(at: i), targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFit, options: options) { (image, dictionary) in
-                    imageArray.append(image!)
+                    
+                    //Create a statefulImage object using the image.
+                    if let appendedImage = image {
+                        imageArray.append(StatefulImage(photo: appendedImage, isChecked: false))
+                    }
                 }
             }
             
