@@ -10,7 +10,8 @@ SavedPhotosVC.swift is the main view that the user interacts with.  It is what d
 the delegate for the UIImagePickerController class that handles the user's photo library.  
 
 The first time the app is launched, the user is prompted to allow DropBoxer to have access to the photos on the phone.
-This means that the functionality to grab the photos fails the first time.  After that it works.  Need to figure it out.
+This means that the functionality to grab the photos fails the first time.  After that it works.  Need to figure it
+out.
 
 TODO:
 Handle the issue of the checkmark not showing if the user scrolls the CollectionView and the outer-most cells are
@@ -25,3 +26,4 @@ Nice to haves:
 Storing user info in the keychain so he or she doesn't have to log into DB each time the app runs.
 Think of a better place for DB authentication.
 Allow the user to edit the photo before upload.
+Update the progress circle color to match the checkmark of the success message.

@@ -2,8 +2,7 @@ import UIKit
 import SwiftyDropbox
 
 protocol DropboxVMDelegate {
-    func updateSuccessMessage()
-    func updateProgressBar(count: Int)
+    func updateUploadMessageWith(success: Bool, count: Int)
 }
 
 //This is the view that calls over to the DropboxVM backend.  All it exists to do is shuttle information.
@@ -19,7 +18,13 @@ class UploadVC: UIViewController, DropboxVMDelegate {
     let shapeLayer = CAShapeLayer()
     
     //The view that holds the success message.  It starts out as hidden and will be shown upon download completion.
-    @IBOutlet weak var successView: UIView!
+    @IBOutlet weak var uploadMessageView: UIView!
+    @IBOutlet weak var uploadMessageLabel: UILabel!
+    @IBOutlet weak var checkmarkImg: UIImageView!
+    
+    //The view that holds the button for uploading more photos.
+    @IBOutlet weak var uploadMorePhotosView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,20 +42,37 @@ class UploadVC: UIViewController, DropboxVMDelegate {
         }
     }
     
-    internal func updateSuccessMessage() {
-        
-    }
-    
-    internal func updateProgressBar(count: Int) {
+    //This function will update the progress bar and upload message depending on whether each photo's upload was successful or not.
+    internal func updateUploadMessageWith(success: Bool, count: Int) {
         shapeLayer.strokeEnd = CGFloat(count/imagesToBeUploaded.count)
         
-        //If all photos to be uploaded have been, then show the success message.
-        if count/imagesToBeUploaded.count == 1 {
-            
-            //Fade the message in.
-            UIView.animate(withDuration: 0.5) {
-                self.successView.alpha = 1.0
+        //Success path.
+        if success {
+            //If all photos to be uploaded have been, then show the success message.  The UI is set up to handle successes initially so no other changes need to be made.
+            if count/imagesToBeUploaded.count == 1 {
+                showUploadMessage()
+                
+                //On success ALSO ask the user if he or she would like to upload more photos.
+                UIView.animate(withDuration: 0.5) {
+                    self.uploadMorePhotosView.alpha = 1.0
+                }
             }
+        } else {
+            //Error path.
+            //Update the UI to show the user an error has occurred. 
+            uploadMessageLabel.text = "There was an error on upload.  Please try again later."
+            uploadMessageView.backgroundColor = UIColor.red
+            checkmarkImg.image = #imageLiteral(resourceName: "X mark")
+            shapeLayer.strokeColor = UIColor.red.cgColor
+            
+            showUploadMessage()
+        }
+    }
+
+    fileprivate func showUploadMessage() {
+        //Fade the message in.
+        UIView.animate(withDuration: 0.5) {
+            self.uploadMessageView.alpha = 1.0
         }
     }
     
@@ -84,6 +106,12 @@ class UploadVC: UIViewController, DropboxVMDelegate {
 
         dropboxVM.upload(photos: imagesToBeUploaded)
         
+    }
+    
+    @IBAction func uploadMorePhotosTapped(_ sender: Any) {
+    
+        dismiss(animated: true, completion: nil)
+    
     }
 }
 

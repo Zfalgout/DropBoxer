@@ -32,6 +32,8 @@ struct DropboxVM {
         let folderName = formatter.string(from: uploadDate) + "_" + UUID().uuidString
         
         var count = 0
+        //This is checked at the end of each iteration through the loop.  It will stop further uploads if we had an error.
+        var shouldBreak = false
         
         //Loop through our set of photos.
         for photo in photos {
@@ -47,22 +49,30 @@ struct DropboxVM {
                         //The call to DB has been made.
                         if let response = response {
                             //Check the response for any needed data.
-                            //print("The response is \(response)")
+                            self.delegate?.updateUploadMessageWith(success: true, count: count)
                         } else if let error = error {
                             //Handle all upload errors here.
                             //Something failed.  Handle it.
-                            //print(error)
+                            self.delegate?.updateUploadMessageWith(success: false, count: photos.count)
+                            //If we've gotten here, then we want to break out of the for loop and stop all future uploads, set a variable to do that.
+                            shouldBreak = true
+                            
+                            //Reset count such that the count passed in to the updateProgressBar method never equals the correct number.
+                            count = 0
                         }
                     }
                     .progress { progressData in
-                        //Create and show a progress bar here.
-                        self.delegate?.updateProgressBar(count: count)
+                        //Do anything if you want to monitor an individual upload's progress.
                         }
             } else {
                 //Handle the conversion error.
             }
+            
+            //Check whether we should break out of the loop.  Should only happen on errors.
+            if shouldBreak {
+                break
+            }
         }
-
     }
     
 }
