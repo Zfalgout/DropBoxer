@@ -20,12 +20,11 @@ class InitalVC: UIViewController {
         } else if photos == .authorized {
             self.goToCollectionView()
         } else if photos == .denied {
-            print("Authorization denied.")
             self.requestAuthorization()
-            //I'd like to ask for authorization again, but when I do the status object in requestAuthorization is .denied already so nothing happens.
         }
     }
     
+    //Function to fire off the showCollection segue.  It has to be done on the UI thread.  Removing the call to the main thread causes issues with the label in the SavedPhotosVC.
     private func goToCollectionView() { 
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "showCollection", sender: self)

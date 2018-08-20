@@ -32,4 +32,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+//This exists so that the authentication criteria can be communicated to the uploadVC after the authentication flow takes place.
 var userAuthenticated = false

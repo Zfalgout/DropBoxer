@@ -1,11 +1,3 @@
-//
-//  RoundedButtonView.swift
-//  DropBoxer
-//
-//  Created by Zack Falgout on 8/16/18.
-//  Copyright © 2018 Zack Falgout. All rights reserved.
-//
-
 import UIKit
 
 class RoundedButtonView: UIButton {

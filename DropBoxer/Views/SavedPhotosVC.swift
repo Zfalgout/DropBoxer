@@ -2,14 +2,13 @@ import UIKit
 
 class SavedPhotosVC: UIViewController {
 
+    //String value to determine if the alert is shown.
     private let SHOW_INSTRUCTION_ALERT_KEY = "ShowInstructionAlert"
+    private let reuseIdentifier = "photoCell"
     
     let photoLibrary = PhotoLibraryVM()
     let userDefaults = UserDefaults()
     let photoCellImpl = PhotoCell()
-
-    
-    private let reuseIdentifier = "photoCell"
     
     //Using an array for imagesFromLibrary because I need them it to be ordered.  If a user clicks on a cell in the collectionView, that's the image that needs to be uploaded.  Besides, I already ordered the way the photos were retrieved in PhotoLibraryVM.swift.  It'd be a shame to mess it all up now....
     var imagesFromLibrary: [StatefulImage] = []
@@ -24,7 +23,6 @@ class SavedPhotosVC: UIViewController {
     let screenHeight = UIScreen.main.bounds.width
     
     @IBOutlet weak var photosCollectionView: UICollectionView!
-    
     @IBOutlet weak var countLabel: UILabel!
     
     override func viewDidLoad() {
@@ -49,14 +47,16 @@ class SavedPhotosVC: UIViewController {
         //Need to see if we have to show the alert.
         determineIfAlertIsShown()
         
+        //Ensure the countLabel is white and the correct size.
+        removeCountIssue()
+        
+        //If an image was previously uploaded, it needs its isChecked attribute flipped to false if this view appears again.
         for index in checkedImages {
             imagesFromLibrary[index].isChecked = false
         }
         
         //Clear out the imagesForUpload array.
         imagesForUpload.removeAll()
-        
-        countLabel.text = "\(imagesForUpload.count)"
         
         //Hide the checkmark for each selected cell.
         photosCollectionView.reloadData()
@@ -87,7 +87,6 @@ class SavedPhotosVC: UIViewController {
 
         //This will add an entry to user defaults which can then be read on subsequent loads of the app.
         alert.addAction(UIAlertAction(title: "Don't show me this again", style: .destructive, handler: { [weak self] alert in
-
             self?.userDefaults.set("no", forKey: (self?.SHOW_INSTRUCTION_ALERT_KEY)!)
         }))
         
@@ -98,10 +97,7 @@ class SavedPhotosVC: UIViewController {
     
         if imagesForUpload.isEmpty {
             //Pop the countLabel up some and change it's color so the user knows what the problem is.
-            UIView.animate(withDuration: 0.25) {
-                self.countLabel.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-                self.countLabel.textColor = UIColor.red
-            }
+            showCountIssue()
             return
         } else {
             performSegue(withIdentifier: "showUploadVC", sender: self)
@@ -109,7 +105,6 @@ class SavedPhotosVC: UIViewController {
     }
     
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -155,10 +150,16 @@ extension SavedPhotosVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        
         let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell
         
         if imagesForUpload.contains(imagesFromLibrary[indexPath.item].photo) {
+            
+            //If the user had previously attempted to add a twenty-first picture, then the countLabel will show an error.  If the user attempts to remove one of the twenty pictures then we need to reset the countLabel.
+            if countLabel.textColor == UIColor.red {
+                removeCountIssue()
+            }
+            
             //The images for upload already contains the photo.  Remove it from the array.
             imagesForUpload.remove(imagesFromLibrary[indexPath.item].photo)
             
@@ -175,16 +176,19 @@ extension SavedPhotosVC: UICollectionViewDataSource, UICollectionViewDelegate {
             //Update the count.
             countLabel.text = "\(imagesForUpload.count)"
         } else {
+            
+            guard imagesForUpload.count < 20 else {
+                showCountIssue()
+                return
+            }
+            
             //The images for upload does not contain the photo.  Add it.
             //imagesForUpload.append(imagesFromLibrary[indexPath.item])
             imagesForUpload.insert(imagesFromLibrary[indexPath.item].photo)
             
             //If the color of the label is red then the user previously attempted to get to the upload screen without adding photos to be uploaded.  Now that the user has selected a photo, return the label to its original configuration.
             if countLabel.textColor == UIColor.red {
-                UIView.animate(withDuration: 0.25) {
-                    self.countLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
-                    self.countLabel.textColor = UIColor.white
-                }
+                removeCountIssue()
             }
             
             //Ensure that the cell is a PhotoCell and isn't nil.
@@ -197,5 +201,22 @@ extension SavedPhotosVC: UICollectionViewDataSource, UICollectionViewDelegate {
             countLabel.text = "\(imagesForUpload.count)"
         }
         
+    }
+    
+    //The following two functions are convience functions for adding/removing the countLabel
+    private func showCountIssue() {
+        UIView.animate(withDuration: 0.25) {
+            self.countLabel.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            self.countLabel.textColor = UIColor.red
+        }
+    }
+    
+    private func removeCountIssue() {
+        if countLabel.textColor == UIColor.red {
+            UIView.animate(withDuration: 0.25) {
+                self.countLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.countLabel.textColor = UIColor.white
+            }
+        }
     }
 }

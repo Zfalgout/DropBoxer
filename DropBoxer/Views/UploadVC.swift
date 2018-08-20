@@ -32,11 +32,12 @@ class UploadVC: UIViewController, DropboxVMDelegate {
         dropboxVM.delegate = self
         
         progressCircleSetup()
-        
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //If the user isn't authenticated, then attempt to authenticate.
         if !userAuthenticated {
             dropboxVM.authenticateWithDB(from: self)
         }
@@ -76,6 +77,7 @@ class UploadVC: UIViewController, DropboxVMDelegate {
         }
     }
     
+    //A convienince function to set up the progress circle.
     fileprivate func progressCircleSetup() {
         //let center = view.center
         let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: (CGFloat.pi * 2), clockwise: true)
@@ -100,18 +102,14 @@ class UploadVC: UIViewController, DropboxVMDelegate {
         view.layer.addSublayer(shapeLayer)
     }
     
+    //Upload the photos.
     @IBAction func uploadPhotos(_ sender: Any) {
-    
-        print("The photos to be uploaded are \(imagesToBeUploaded)")
-
         dropboxVM.upload(photos: imagesToBeUploaded)
-        
     }
     
+    //Button to dismiss the current view and route the user back to the collection view.
     @IBAction func uploadMorePhotosTapped(_ sender: Any) {
-    
         dismiss(animated: true, completion: nil)
-    
     }
 }
 

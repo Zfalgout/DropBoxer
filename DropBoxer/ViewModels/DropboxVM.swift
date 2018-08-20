@@ -51,7 +51,6 @@ struct DropboxVM {
                             //Check the response for any needed data.
                             self.delegate?.updateUploadMessageWith(success: true, count: count)
                         } else if let error = error {
-                            //Handle all upload errors here.
                             //Something failed.  Handle it.
                             self.delegate?.updateUploadMessageWith(success: false, count: photos.count)
                             //If we've gotten here, then we want to break out of the for loop and stop all future uploads, set a variable to do that.
