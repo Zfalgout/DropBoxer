@@ -5,8 +5,9 @@ class SavedPhotosVC: UIViewController {
     private let SHOW_INSTRUCTION_ALERT_KEY = "ShowInstructionAlert"
     
     let photoLibrary = PhotoLibraryVM()
-    let photoCellImpl = PhotoCell()
     let userDefaults = UserDefaults()
+    let photoCellImpl = PhotoCell()
+
     
     private let reuseIdentifier = "photoCell"
     
@@ -95,12 +96,16 @@ class SavedPhotosVC: UIViewController {
     
     @IBAction func nextButtonTapped(_ sender: Any) {
     
-        guard !imagesForUpload.isEmpty else {
-            //Show a modal letting the user know that he or she must select an image.
+        if imagesForUpload.isEmpty {
+            //Pop the countLabel up some and change it's color so the user knows what the problem is.
+            UIView.animate(withDuration: 0.25) {
+                self.countLabel.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                self.countLabel.textColor = UIColor.red
+            }
             return
+        } else {
+            performSegue(withIdentifier: "showUploadVC", sender: self)
         }
-
-        performSegue(withIdentifier: "showUploadVC", sender: self)
     }
     
     // MARK: - Navigation
@@ -152,7 +157,7 @@ extension SavedPhotosVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
         let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell
-
+        
         if imagesForUpload.contains(imagesFromLibrary[indexPath.item].photo) {
             //The images for upload already contains the photo.  Remove it from the array.
             imagesForUpload.remove(imagesFromLibrary[indexPath.item].photo)
@@ -162,13 +167,25 @@ extension SavedPhotosVC: UICollectionViewDataSource, UICollectionViewDelegate {
                 //The cell was nil, the image has been added to the upload array, return without showing a checkmark.
                 return
             }
+            
+            //Toggle the checkmark.
             cell.updateCheckmarkFor(statefulImage: imagesFromLibrary[indexPath.item])
+            //Remove the image from the array that holds the indicies of the checked images.
             checkedImages.remove(indexPath.item)
+            //Update the count.
             countLabel.text = "\(imagesForUpload.count)"
         } else {
             //The images for upload does not contain the photo.  Add it.
             //imagesForUpload.append(imagesFromLibrary[indexPath.item])
             imagesForUpload.insert(imagesFromLibrary[indexPath.item].photo)
+            
+            //If the color of the label is red then the user previously attempted to get to the upload screen without adding photos to be uploaded.  Now that the user has selected a photo, return the label to its original configuration.
+            if countLabel.textColor == UIColor.red {
+                UIView.animate(withDuration: 0.25) {
+                    self.countLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    self.countLabel.textColor = UIColor.white
+                }
+            }
             
             //Ensure that the cell is a PhotoCell and isn't nil.
             guard let cell = cell else {

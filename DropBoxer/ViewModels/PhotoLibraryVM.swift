@@ -20,8 +20,6 @@ struct PhotoLibraryVM {
         //Making the 'with' parameter .image means that we shouldn't get any movies.
         let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
         
-        //Do I need to check whether the fetch was successful?
-        
         if fetchResult.count > 0 {
             
             for i in 0..<fetchResult.count {
@@ -33,7 +31,6 @@ struct PhotoLibraryVM {
                     }
                 }
             }
-            
         } else {
             print("There are no photos to upload to Dropbox.")
         }

@@ -19,6 +19,7 @@
 		766CBB8521238DD600AE3B03 /* DropBoxerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CBB8421238DD600AE3B03 /* DropBoxerTests.swift */; };
 		76976DAC21251C0F00D2A904 /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76976DAB21251C0F00D2A904 /* UploadVC.swift */; };
 		76B00FAA212A08D700A36923 /* StatefulImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B00FA9212A08D700A36923 /* StatefulImage.swift */; };
+		76B00FAE212A1F9900A36923 /* InitalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B00FAD212A1F9900A36923 /* InitalVC.swift */; };
 		76ED37912123BC2A00432531 /* DropboxVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED37902123BC2A00432531 /* DropboxVM.swift */; };
 		76ED37932123BCF300432531 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 76ED37922123BCF300432531 /* README.txt */; };
 		76ED379A2123BEA900432531 /* SavedPhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ED37992123BEA900432531 /* SavedPhotosVC.swift */; };
@@ -66,6 +67,7 @@
 		766CBB8621238DD600AE3B03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76976DAB21251C0F00D2A904 /* UploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
 		76B00FA9212A08D700A36923 /* StatefulImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatefulImage.swift; path = DropBoxer/Views/StatefulImage.swift; sourceTree = SOURCE_ROOT; };
+		76B00FAD212A1F9900A36923 /* InitalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitalVC.swift; sourceTree = "<group>"; };
 		76ED37902123BC2A00432531 /* DropboxVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxVM.swift; sourceTree = "<group>"; };
 		76ED37922123BCF300432531 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		76ED37992123BEA900432531 /* SavedPhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPhotosVC.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				7637CBB121249AAA004AC0C0 /* PhotoCell.swift */,
 				76976DAB21251C0F00D2A904 /* UploadVC.swift */,
 				7665916F212661BE00BE1289 /* RoundedButtonView.swift */,
+				76B00FAD212A1F9900A36923 /* InitalVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76B00FAE212A1F9900A36923 /* InitalVC.swift in Sources */,
 				76ED379A2123BEA900432531 /* SavedPhotosVC.swift in Sources */,
 				76B00FAA212A08D700A36923 /* StatefulImage.swift in Sources */,
 				7637CBAC21249236004AC0C0 /* PhotoLibraryVM.swift in Sources */,
