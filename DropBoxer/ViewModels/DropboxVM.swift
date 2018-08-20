@@ -18,8 +18,6 @@ struct DropboxVM {
     
     func upload(photos: Set<UIImage>) {
 
-        print("Uploading the photos to dropbox now \(photos)")
-
         //The user has been authorized.  Create a dropbox client using the authroized info.
         let client = DropboxClientsManager.authorizedClient
 
@@ -34,10 +32,10 @@ struct DropboxVM {
         var count = 0
         //This is checked at the end of each iteration through the loop.  It will stop further uploads if we had an error.
         var shouldBreak = false
-        
+        //Flip the progress label to be "Please wait..."
+        self.delegate?.updateProgressLabel(inLoop: false)
         //Loop through our set of photos.
         for photo in photos {
-            count += 1
             //Convert the photo to data for upload.
             if let fileData = UIImagePNGRepresentation(photo) {
 
@@ -46,9 +44,13 @@ struct DropboxVM {
                 //Upload the photo.
                 let request = client?.files.upload(path: "/DropboxerUploads/\(folderName)/\(photoName).png", input: fileData)
                     .response { response, error in
+                        //If this is the first photo uploaded, flip the label to "Upload progress"
+                        if count == 0 {
+                            self.delegate?.updateProgressLabel(inLoop: true)
+                        }
+                        count += 1
                         //The call to DB has been made.
                         if let response = response {
-                            //Check the response for any needed data.
                             self.delegate?.updateUploadMessageWith(success: true, count: count)
                         } else if let error = error {
                             //Something failed.  Handle it.

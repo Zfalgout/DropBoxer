@@ -1,8 +1,8 @@
 import UIKit
-import SwiftyDropbox
 
 protocol DropboxVMDelegate {
     func updateUploadMessageWith(success: Bool, count: Int)
+    func updateProgressLabel(inLoop: Bool)
 }
 
 //This is the view that calls over to the DropboxVM backend.  All it exists to do is shuttle information.
@@ -21,6 +21,8 @@ class UploadVC: UIViewController, DropboxVMDelegate {
     @IBOutlet weak var uploadMessageView: UIView!
     @IBOutlet weak var uploadMessageLabel: UILabel!
     @IBOutlet weak var checkmarkImg: UIImageView!
+    @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var uploadBtn: RoundedButtonView!
     
     //The view that holds the button for uploading more photos.
     @IBOutlet weak var uploadMorePhotosView: UIView!
@@ -45,8 +47,10 @@ class UploadVC: UIViewController, DropboxVMDelegate {
     
     //This function will update the progress bar and upload message depending on whether each photo's upload was successful or not.
     internal func updateUploadMessageWith(success: Bool, count: Int) {
-        shapeLayer.strokeEnd = CGFloat(count/imagesToBeUploaded.count)
         
+        let newStrokeLength = Double(count)/Double(imagesToBeUploaded.count)
+        shapeLayer.strokeEnd = CGFloat(newStrokeLength)
+
         //Success path.
         if success {
             //If all photos to be uploaded have been, then show the success message.  The UI is set up to handle successes initially so no other changes need to be made.
@@ -70,6 +74,14 @@ class UploadVC: UIViewController, DropboxVMDelegate {
         }
     }
 
+    internal func updateProgressLabel(inLoop: Bool) {
+        if inLoop {
+            progressLabel.text = "Upload progress"
+        } else {
+            progressLabel.text = "Please wait..."
+        }
+    }
+    
     fileprivate func showUploadMessage() {
         //Fade the message in.
         UIView.animate(withDuration: 0.5) {
@@ -104,6 +116,11 @@ class UploadVC: UIViewController, DropboxVMDelegate {
     
     //Upload the photos.
     @IBAction func uploadPhotos(_ sender: Any) {
+        //After the button is clicked, disable it.  I don't want users re-uploading the same photos.
+        uploadBtn.isEnabled = false
+        uploadBtn.backgroundColor = UIColor.gray
+        uploadBtn.alpha = 0.5
+        
         dropboxVM.upload(photos: imagesToBeUploaded)
     }
     

@@ -301,6 +301,8 @@
                     </view>
                     <connections>
                         <outlet property="checkmarkImg" destination="3h4-6c-KL6" id="NDl-gC-QY5"/>
+                        <outlet property="progressLabel" destination="PjM-u0-93H" id="e2l-Hg-dHv"/>
+                        <outlet property="uploadBtn" destination="6jO-Qh-PNb" id="VNe-QB-Xha"/>
                         <outlet property="uploadMessageLabel" destination="qHB-WD-Oof" id="36I-9e-utb"/>
                         <outlet property="uploadMessageView" destination="ICC-iM-XOm" id="ho7-Nd-7iI"/>
                         <outlet property="uploadMorePhotosView" destination="5Qm-4V-Mr7" id="VJX-Np-rwT"/>

@@ -58,6 +58,8 @@ class SavedPhotosVC: UIViewController {
         //Clear out the imagesForUpload array.
         imagesForUpload.removeAll()
         
+        countLabel.text = "\(imagesForUpload.count)"
+        
         //Hide the checkmark for each selected cell.
         photosCollectionView.reloadData()
     }
@@ -122,8 +124,7 @@ class SavedPhotosVC: UIViewController {
 extension SavedPhotosVC {
     
     private func setupCollectionViewLayout() {
-        print("Inside of setupCollectionViewLayout")
-        
+
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30)
         layout.itemSize = CGSize(width: screenWidth/4, height: screenWidth/4)

@@ -19,10 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let authResult = DropboxClientsManager.handleRedirectURL(url) {
             switch authResult {
             case .success:
-                print("Success! User is logged into Dropbox.")
                 userAuthenticated = true
             case .cancel:
-                print("Authorization flow was manually canceled by user!")
+                print("User cancelled")
             case .error(_, let description):
                 print("Error: \(description)")
             }
